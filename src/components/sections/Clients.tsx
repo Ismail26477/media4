@@ -81,7 +81,7 @@ const Clients = memo(() => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8 }}
-          className="bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-lg p-6 sm:p-8 md:p-12 backdrop-blur-sm"
+          className="bg-transparent border border-white/10 rounded-lg p-6 sm:p-8 md:p-12 backdrop-blur-sm"
         >
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {clients.map((client, i) => (
@@ -94,7 +94,7 @@ const Clients = memo(() => {
                 className="group relative"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative bg-white/5 border border-white/10 rounded-lg p-4 sm:p-6 md:p-8 text-center hover:border-primary/50 hover:bg-white/[0.08] transition-all duration-300 group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.1)] flex items-center justify-center min-h-[150px] sm:min-h-[180px] md:min-h-[200px]">
+                <div className="relative bg-transparent border border-white/10 rounded-lg p-4 sm:p-6 md:p-8 text-center hover:border-primary/50 hover:bg-white/[0.05] transition-all duration-300 group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.1)] flex items-center justify-center min-h-[150px] sm:min-h-[180px] md:min-h-[200px]">
                   <div className="w-full h-full flex items-center justify-center">
                     <img
                       src={client.logo}
@@ -103,9 +103,6 @@ const Clients = memo(() => {
                     />
                   </div>
                 </div>
-                <p className="text-xs sm:text-sm text-gray-400 mt-2 sm:mt-3 text-center font-medium uppercase tracking-[0.1em] group-hover:text-primary transition-colors line-clamp-2">
-                  {client.name}
-                </p>
               </motion.div>
             ))}
           </div>
