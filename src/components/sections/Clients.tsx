@@ -2,18 +2,54 @@ import { memo } from "react";
 import { motion } from "framer-motion";
 
 const clients = [
-  "Maharashtra Shasan",
-  "Maharashtra Tourism",
-  "Audible",
-  "Finolex Pipes",
-  "Rhyfil",
-  "AppDirect India",
-  "Teradata India",
-  "Snovel",
-  "Zee Music Marathi",
-  "Symbiosis SSOU",
-  "Nanded Waghala Municipal Corp",
-  "Gurukul Public School",
+  {
+    name: "Maharashtra Shasan",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-YcwlSWCUZ8ZgRme6SPHqPvnu9Id6bh.png",
+  },
+  {
+    name: "Maharashtra Tourism",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-0xs6rYgBjNTntla0E9eYUePUWsu5Kh.png",
+  },
+  {
+    name: "Audible",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-NseqnN7bc7sE5mpJT3XTjieAnmd9b3.png",
+  },
+  {
+    name: "Finolex Pipes",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-TNQt83cp5twkEQQu86Xymx4CGC0U7r.png",
+  },
+  {
+    name: "Rhyfil",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-paKJPB3gW7348LVQbNkoOEfozne6f9.png",
+  },
+  {
+    name: "AppDirect India",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yGneudVcskJQwVlNr2EUfBFJOKJMcf.png",
+  },
+  {
+    name: "Teradata India",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Hgj9CJKtmSCFl6wC6f2VZyp6YZ8N1U.png",
+  },
+  {
+    name: "Snovel",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-sIjkJJajpFFuslYn0yogprQ0CK1rBW.png",
+  },
+  {
+    name: "Zee Music Marathi",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-32xdv5TRmxy6U4XVN7fNx9elWRKnoT.png",
+  },
+  {
+    name: "Symbiosis SSOU",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-6lUMzn5vhqnpIgYtnMgCud3Ew4yIQR.png",
+  },
+  {
+    name: "Nanded Waghala Municipal Corp",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7Hr0lkXKPzDM7MGYseR42w6epGStzr.png",
+  },
+  {
+    name: "Gurukul Public School",
+    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7Hr0lkXKPzDM7MGYseR42w6epGStzr.png",
+  },
 ];
 
 const Clients = memo(() => {
@@ -45,12 +81,12 @@ const Clients = memo(() => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8 }}
-          className="bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-lg p-8 sm:p-12 backdrop-blur-sm"
+          className="bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-lg p-6 sm:p-8 md:p-12 backdrop-blur-sm"
         >
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-            {clients.map((c, i) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+            {clients.map((client, i) => (
               <motion.div
-                key={c}
+                key={client.name}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -58,11 +94,18 @@ const Clients = memo(() => {
                 className="group relative"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative bg-white/5 border border-white/10 rounded-lg px-4 py-6 sm:px-6 sm:py-8 text-center hover:border-primary/50 hover:bg-white/[0.08] transition-all duration-300 group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.1)]">
-                  <span className="text-sm sm:text-base font-semibold uppercase tracking-[0.15em] text-white/90 leading-tight block group-hover:text-primary transition-colors">
-                    {c}
-                  </span>
+                <div className="relative bg-white/5 border border-white/10 rounded-lg p-4 sm:p-6 md:p-8 text-center hover:border-primary/50 hover:bg-white/[0.08] transition-all duration-300 group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.1)] flex items-center justify-center min-h-[150px] sm:min-h-[180px] md:min-h-[200px]">
+                  <div className="w-full h-full flex items-center justify-center">
+                    <img
+                      src={client.logo}
+                      alt={client.name}
+                      className="max-w-full max-h-full object-contain px-2 sm:px-3"
+                    />
+                  </div>
                 </div>
+                <p className="text-xs sm:text-sm text-gray-400 mt-2 sm:mt-3 text-center font-medium uppercase tracking-[0.1em] group-hover:text-primary transition-colors line-clamp-2">
+                  {client.name}
+                </p>
               </motion.div>
             ))}
           </div>
