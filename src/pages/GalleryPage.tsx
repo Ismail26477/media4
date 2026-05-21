@@ -30,6 +30,41 @@ const photos = [
   { img: mahalaxmi, name: "Mahalaxmi Iyer", role: "Dubbing for Album Tujha Ek Themb" },
 ];
 
+const films = [
+  {
+    title: "PPMS",
+    poster: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-nEJQz7Abl6crUGaVsmgqiD6P6Nzxke.png",
+  },
+  {
+    title: "Raya",
+    poster: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-jnFJbd0rk0sXqiglRTlzkmmUdYtwHl.png",
+  },
+  {
+    title: "Rajkumari",
+    poster: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-W121DO7JA8DHdlLUJRZkprYCMlDBsc.png",
+  },
+  {
+    title: "Udaharnarth Nemade",
+    poster: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7jkxgW0CLuWN2OfLLyQT3G3apY4tKC.png",
+  },
+  {
+    title: "Kshatriya",
+    poster: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-DDTfRO4PX9PS97AeaMjo9Mc11ar4IV.png",
+  },
+  {
+    title: "Erbai",
+    poster: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-bT3u2h5qQdOPHUwILYspG8Sp2DWN7j.png",
+  },
+  {
+    title: "Asahi Prakda Chaat",
+    poster: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-SYalzyB7L4SvLdxGCOQCG8LvDzfs6E.png",
+  },
+  {
+    title: "Ek Karachya Bhankarkaa",
+    poster: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-KFYLjB6k2JdreyTRVfPJwT8mSqRe8V.png",
+  },
+];
+
 const GalleryPage = () => (
   <div className="min-h-screen bg-background text-foreground">
     <CursorGlow />
@@ -80,6 +115,49 @@ const GalleryPage = () => (
             </motion.figure>
           ))}
         </div>
+      </section>
+
+      {/* Feature Films Section */}
+      <section className="container mt-32">
+        <div className="text-center mb-16">
+          <p className="eyebrow mb-4">▸ Production Portfolio</p>
+          <h2 className="display-lg mb-4">
+            Featured <span className="text-primary">Films</span>
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Showcase of Marathi cinema projects we have collaborated with for dubbing and audio production.
+          </p>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8 }}
+          className="bg-transparent border border-white/10 rounded-lg p-6 sm:p-8 md:p-12 backdrop-blur-sm"
+        >
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+            {films.map((film, i) => (
+              <motion.div
+                key={film.title}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
+                className="group relative"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative bg-transparent border border-white/10 rounded-lg p-4 sm:p-6 md:p-8 text-center hover:border-primary/50 hover:bg-white/[0.05] transition-all duration-300 group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.1)] flex items-center justify-center aspect-[3/4] overflow-hidden">
+                  <img
+                    src={film.poster}
+                    alt={film.title}
+                    className="w-full h-full object-cover rounded transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </section>
     </main>
     <Footer />
